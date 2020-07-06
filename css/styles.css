@@ -132,11 +132,9 @@ h2 {
 }
 .link:hover {
   color: var(--accent-color);
-  transition: translate(color);
 }
 .link:focus {
   color: var(--accent-color);
-  transition: translate(color);
 }
 .contact {
   color: var(--title-text-color);
@@ -198,11 +196,12 @@ h2 {
   border-radius: 4px;
   padding: 10px 32px;
   border: 1px solid transparent;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Примерныйцвет для кнопки */
 
 .button-hero:focus {
-  color: var(--primery-text-color);
+  background-color: rgba(47, 48, 58, 0.8);
 }
 /* Нам месте background Будет фоновая картинка */
 .title-hero {
@@ -289,8 +288,20 @@ figure {
 .services-title {
   margin-bottom: 50px;
 }
+.service-item {
+  position: relative;
+}
 .services {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: var(--white-color);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 370px;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
 
   font-weight: 700;
   font-size: 14px;
@@ -299,6 +310,16 @@ figure {
   letter-spacing: 0.03em;
   text-transform: uppercase;
   text-decoration: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.services:hover {
+  color: var(--accent-color);
+  background-color: rgb(47, 48, 58);
+}
+.services:focus {
+  color: var(--accent-color);
+  background-color: rgb(47, 48, 58);
 }
 /* Секция- наша команда */
 .team {
@@ -367,9 +388,10 @@ figure {
   height: 44px;
   color: #afb1b8;
   background-color: white;
-
   border: none;
   border-radius: 50%;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .social-link:nth-child(-n + 3) {
   margin-right: 10px;
@@ -411,6 +433,13 @@ figure {
 }
 .ouver-clients {
   color: #afb1b8;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ouver-clients:hover {
+  color: var(--accent-color);
+}
+.ouver-clients:focus {
+  color: var(--accent-color);
 }
 
 .clients-svg {
@@ -418,13 +447,13 @@ figure {
   box-sizing: border-box;
   border-radius: 4px;
   fill: currentColor;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
-.ouver-clients:hover {
-  color: var(--accent-color);
+.clients-svg:hover {
+  border: 1px solid var(--accent-color);
 }
-.ouver-clients:focus {
-  color: var(--accent-color);
+.clients-svg:focus {
+  border: 1px solid var(--accent-color);
 }
 
 /* Стилизация логотипа в футере */
@@ -504,9 +533,9 @@ figure {
   width: 44px;
   height: 44px;
   color: white;
-
   border: none;
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .foot-social:nth-child(-n + 3) {
   margin-right: 10px;
@@ -582,6 +611,7 @@ p {
   min-height: 38px;
   border-radius: 4px;
   padding: 6px 22px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-button:hover {
   background-color: var(--accent-color);
@@ -591,6 +621,7 @@ p {
   background-color: var(--accent-color);
   color: var(--white-color);
 }
+
 /* Стилизация галлереи */
 .flex-gallery {
   display: flex;
@@ -600,8 +631,7 @@ p {
 }
 .gallery-item {
   width: 370px;
-  /* background-color: blue; */
-  /* outline: 1px solid black; */
+  height: 404px;
   margin-right: 30px;
   margin-bottom: 30px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -613,6 +643,8 @@ p {
   margin-bottom: 0px;
 }
 .portfolio-title {
+  margin-left: 24px;
+
   color: var(--primery-text-color);
 
   font-weight: 700;
@@ -623,12 +655,51 @@ p {
   letter-spacing: 0.06em;
 }
 .portfolio-service {
+  margin-left: 24px;
   color: var(--title-text-color);
 
   font-weight: 400;
   font-size: 16px;
   line-height: 1.9;
   /* identical to box height, or 187% */
+
+  letter-spacing: 0.03em;
+}
+.product {
+  margin-bottom: 20px;
+
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  display: flex;
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+  color: var(--white-color);
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.gallery-item:hover .overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+.text-overlay {
+  margin-left: 24px;
+  margin-right: 24px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  /* or 156% */
 
   letter-spacing: 0.03em;
 }
