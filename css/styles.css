@@ -185,6 +185,7 @@ h2 {
   display: inline-block;
   color: #ffffff;
   background-color: var(--accent-color);
+  cursor: pointer;
   font-weight: 700;
   font-size: 16px;
   line-height: 1.8;
@@ -599,6 +600,7 @@ p {
   border-style: none;
   color: var(--primery-text-color);
   background-color: var(--secondary-background-color);
+  cursor: pointer;
   font-family: Roboto;
   font-weight: 500;
   font-size: 16px;
